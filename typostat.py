@@ -133,9 +133,9 @@ print "appending to", out_path
 analyzer = Analyzer(out_path)
 keylogger.return_shifted_values = False
 # first window is short so you can confirm things are working
-window_end = time.time() + 3
+window_end = time.time() + 5
 while True:
     keylogger.log(lambda: time.time() > window_end, analyzer.on_key)
-    window_end = time.time() + 30
+    window_end = time.time() + 300
     analyzer.flush()
 
