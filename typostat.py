@@ -109,11 +109,16 @@ class Analyzer(DetectBackspace):
             't': round(self.window_start_time, 3),
             'keypresses': self.keypresses,
             'window_secs': round(elapsed, 3),
-            'backspaced_counts': self.backspaced_counts,
-            'replaced_counts': self.replaced_counts,
-            'high_typing_rate': round(1 / avg(low_gaps), 2) if low_gaps else 0,
-        }
-        self._add_side_counts(report)
+            }
+        if self.keypresses:
+            report.update({
+                'backspaced_counts': self.backspaced_counts,
+                'replaced_counts': self.replaced_counts,
+                'high_typing_rate':
+                round(1 / avg(low_gaps), 2) if low_gaps else 0,
+            })
+            self._add_side_counts(report)
+
         with open(self.out_path, 'a') as out:
             out.write(json.dumps(report, sort_keys=True) + '\n')
 
