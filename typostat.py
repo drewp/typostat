@@ -114,7 +114,7 @@ class Analyzer(DetectBackspace):
             'high_typing_rate': round(1 / avg(low_gaps), 2) if low_gaps else 0,
         }
         self._add_side_counts(report)
-        with open(self.out_path, 'w+') as out:
+        with open(self.out_path, 'a') as out:
             out.write(json.dumps(report, sort_keys=True) + '\n')
 
     def _add_side_counts(self, report):
