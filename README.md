@@ -6,6 +6,7 @@ then backspace, and which ones you type right after using backspace.
 Uses https://github.com/amoffat/pykeylogger for the X code.
 
 Sample output (you get a line like this every 5 minutes):
+
     {
       "backspaced_counts": {".": 2, "a": 1, "d": 1, "e": 1, "p": 1, "t": 1},
       "backspaced_left_side": 4,
